@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smash Hit</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- HUD -->
+    <div id="hud">
+      <div id="ball-display">
+        <svg id="ball-icon" viewBox="0 0 20 20" width="22" height="22">
+          <defs>
+            <radialGradient id="ballGrad" cx="35%" cy="30%">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="60%" stop-color="#aaaacc"/>
+              <stop offset="100%" stop-color="#556688"/>
+            </radialGradient>
+          </defs>
+          <circle cx="10" cy="10" r="9" fill="url(#ballGrad)" />
+        </svg>
+        <span id="balls-count">10</span>
+      </div>
+      <div id="score-display">
+        <span id="score-label">SCORE</span>
+        <span id="score-value">0</span>
+      </div>
+      <div id="multiplier-display">
+        <span id="multiplier-value">×1</span>
+      </div>
+    </div>
+
+    <div id="popups"></div>
+
+    <div id="start-screen" class="screen">
+      <div class="screen-inner">
+        <h1 class="game-title">SMASH<br/><span class="title-accent">HIT</span></h1>
+        <p class="subtitle">Shoot balls · Break glass · Collect gems</p>
+        <div class="controls-hint">
+          <div class="hint-item"><kbd>Click</kbd> to shoot</div>
+          <div class="hint-item">Break <span class="gem-word">crystals</span> for +3 balls</div>
+          <div class="hint-item">Don't let obstacles pass you!</div>
+        </div>
+        <button id="start-btn" class="btn-play">PLAY</button>
+      </div>
+    </div>
+
+    <div id="gameover-screen" class="screen hidden">
+      <div class="screen-inner">
+        <h2 class="gameover-title">GAME OVER</h2>
+        <div class="final-stats">
+          <div class="stat-row">
+            <span class="stat-label">SCORE</span>
+            <span id="final-score" class="stat-value">0</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">DISTANCE</span>
+            <span id="final-distance" class="stat-value">0m</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">BEST SCORE</span>
+            <span id="best-score" class="stat-value">0</span>
+          </div>
+        </div>
+        <button id="restart-btn" class="btn-play">PLAY AGAIN</button>
+      </div>
+    </div>
+
+    <div id="pause-screen" class="screen hidden">
+      <div class="screen-inner">
+        <h2>PAUSED</h2>
+        <button id="resume-btn" class="btn-play">RESUME</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/particles.js"></script>
+  <script src="js/obstacles.js"></script>
+  <script src="js/levels.js"></script>
+  <script src="js/renderer.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
